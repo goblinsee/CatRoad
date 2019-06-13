@@ -9,6 +9,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -23,20 +26,22 @@ public class ChessboardView extends View
     private int gridSize;
     private int[] levelInfo;
     private winCallBack winBack;
+    private static SoundPool sp;
+    private Context context;
 
     public ChessboardView(Context context, AttributeSet attrs) {
-
         super(context, attrs);
+        this.context = context;
     }
 
     public ChessboardView(Context context, AttributeSet attrs, int defStyle) {
-
         super(context, attrs, defStyle);
+        this.context = context;
     }
 
-    public ChessboardView(Context context)
-    {
+    public ChessboardView(Context context) {
         super(context);
+        this.context = context;
     }
 
     public void setLevelInfo(int[] levelInfo) {
@@ -50,6 +55,26 @@ public class ChessboardView extends View
         Fragment.reset();
         Fragment.setPlayBoard(playBoard);
         setChess();
+        //初始化音效
+        if (sp == null) {
+            // 5.0 及 之后
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                AudioAttributes audioAttributes = null;
+                audioAttributes = new AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_MEDIA)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                        .build();
+
+                sp = new SoundPool.Builder()
+                        .setMaxStreams(16)
+                        .setAudioAttributes(audioAttributes)
+                        .build();
+            } else { // 5.0 以前
+                sp = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);  // 创建SoundPool
+            }
+        }
+        final int cat1 = sp.load(context, R.raw.cat1, 1);
+        final int cat2 = sp.load(context, R.raw.cat2, 1);
 
         this.setOnTouchListener(new OnTouchListener()
         {
@@ -69,6 +94,9 @@ public class ChessboardView extends View
                         start_x = (int)event.getX()/gridSize;
                         start_y = (int)event.getY()/gridSize;
                         selectedValue = playBoard.getBoardValue(start_x, start_y);
+                        if(selectedValue == 1) {
+                            sp.play(cat1, 1, 1, 1, 0, 1);
+                        }
                         break;
                     case MotionEvent.ACTION_MOVE:
                         xPos = (int)event.getX()/gridSize;
@@ -104,6 +132,7 @@ public class ChessboardView extends View
                         // 判断胜利条件
                         if(playBoard.getBoardValue(1, 4)==1 && playBoard.getBoardValue(2, 4)==1) {
                             winBack.isWin(playBoard.getCount());
+                            sp.play(cat2, 1, 1, 1, 0, 1);
                         }
                         break;
                 }
