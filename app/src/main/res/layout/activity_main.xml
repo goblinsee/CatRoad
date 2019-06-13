@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundPink"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/backGround"
+        android:layout_width="wrap_content"
+        android:layout_height="1902px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        app:srcCompat="@drawable/main" />
+
+    <Button
+        android:id="@+id/start_game"
+        android:layout_width="160dp"
+        android:layout_height="140px"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/menuButton"
+        android:onClick="startGame"
+        android:text="@string/start_game"
+        android:textColor="@color/backgroundWhite"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/backGround"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backGround"
+        app:layout_constraintVertical_bias="0.675" />
+
+    <Button
+        android:id="@+id/quit_game"
+        android:layout_width="160dp"
+        android:layout_height="140px"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/menuButton"
+        android:onClick="quitGame"
+        android:text="@string/quit_game"
+        android:textColor="@color/backgroundWhite"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/backGround"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backGround"
+        app:layout_constraintVertical_bias="0.785" />
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="360dp"
+        android:layout_height="180dp"
+        app:layout_constraintBottom_toBottomOf="@+id/backGround"
+        app:layout_constraintEnd_toEndOf="@+id/backGround"
+        app:layout_constraintStart_toStartOf="@+id/backGround"
+        app:layout_constraintTop_toTopOf="@+id/backGround"
+        app:layout_constraintVertical_bias="0.544"
+        app:srcCompat="@drawable/title" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Cat Road</string>
+    <string name="game_name">猫猫出逃记</string>
+    <string name="start_game">开始游戏</string>
+    <string name="reset_game">重新开始</string>
+    <string name="quit_game">退出游戏</string>
+    <string name="win_game">成功逃出！总步数：</string>
+    <string name="lose_game">主人回来啦！逃出失败……</string>
+    <string name="game_step">步数：</string>
+    <string name="game_time">时间：</string>
+    <string name="certain">确认</string>
+    <string name="not_win">未通关</string>
+    <string name="is_win">步数：</string>
+    <string name="game_background">游戏背景</string>
+    <string name="out_hint">出口</string>
+    <string name="back_level">返回</string>
+    <string name="restart_game">重置</string>
+    <string name="level_1">猫猫不见了</string>
+    <string name="level_2">移形换影</string>
+    <string name="level_3">重蹈覆辙</string>
+    <string name="level_4">甜心出击</string>
+    <string name="level_5">你的世界</string>
+    <string name="level_6">你的世界</string>
+    <string name="level_7">你的世界</string>
+</resources>

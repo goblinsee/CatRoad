@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#eee</color>
+    <color name="colorPrimaryDark">#d26a5b</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="backgroundWhite">#fefdfd</color>
+    <color name="backgroundPink">#f27a6b</color>
+    <color name="menuButton">#00f4ac78</color>
+    <color name="toolButton">#fda</color>
+    <color name="menuButtonText">#fff</color>
+    <color name="levelButton">#30F7D0B3</color>
+    <color name="levelButtonText">#603833</color>
+    <color name="levelTitle">#9fff</color>
+    <color name="someLight">#e75045</color>
+</resources>
