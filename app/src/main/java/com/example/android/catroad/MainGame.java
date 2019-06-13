@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainGame extends AppCompatActivity {
     public static final String EXTRA_MESSAGE
@@ -65,6 +66,7 @@ public class MainGame extends AppCompatActivity {
                 break;
         }
         //初始化游戏
+        Toast.makeText(this, "引导猫猫到达出口获得胜利~！", Toast.LENGTH_SHORT).show();
         setCount(0);
         mBoard.init();
         mBoard.findGameWin(new ChessboardView.winCallBack(){
